@@ -1,0 +1,19 @@
+---
+title: "Proposal"
+author: "Hailie Mathews"
+date: "2024-03-09"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+"Introduction"
+---
+
+```{r}
+library(usdata)
+```
+
