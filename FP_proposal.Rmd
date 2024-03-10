@@ -1,5 +1,5 @@
 ---
-title: "Proposal"
+title: "Final Project Proposal"
 author: "Hailie Mathews"
 date: "2024-03-09"
 output: pdf_document
@@ -9,11 +9,118 @@ output: pdf_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+library(openintro)
+library(usdata)
+library(ggplot2)
+library(maps)
+library(dplyr)
+```
 ---
 "Introduction"
 ---
 
+Focus will be on the **state_stats** dataset. The main question I will be exploring is, ***"What connection, if any, exists between population size, poverty, and robbery?"***
+
+I got the dataset from OpenIntro datasets, under **usdata**. **State_stats** is one of 13 datasets inside of **usdata**.
+
+  Some information about OpenIntro datasets:
+    *Directly from their site, it says, "Supplemental functions and data for OpenIntro resources, which includes open-source textbooks and resources for introductory statistics."*
+
+The data was collected from the official US Census website along with various other sources.
+
+There are `r ncol(state_stats)` variables and `r nrow(state_stats)` observations in the dataset. Each variable represents a different category, relating to many things, ranging from population to income to federal spending. Each observation represents the state that the data was collected from.
+
+Along with population, poverty, and robbery, I will also be looking at individuals collecting social security, federal spending, and income per capita. These will not effect my conclusions regarding the dataset but I found them interesting to explore alongside my main question.
+
+
+---
+"Data"
+---
+
+Data Dimensions:
+
 ```{r}
-library(usdata)
+colnames(state_stats)
 ```
+
+Codebook:
+
+**state:**
+State name.
+
+**abbr:**
+State abbreviation (e.g. "MN").
+
+**fips:**
+FIPS code.
+
+**pop2010:**
+Population in 2010.
+
+**pop2000:**
+Population in 2000.
+
+**homeownership:**
+Home ownership rate.
+
+**multiunit:**
+Percent of living units that are in multi-unit structures.
+
+**income:**
+Average income per capita.
+
+**med_income:**
+Median household income.
+
+**poverty:**
+Poverty rate.
+
+**fed_spend:**
+Federal spending per capita.
+
+**land_area:**
+Land area.
+
+**smoke:**
+Percent of population that smokes.
+
+**murder:**
+Murders per 100,000 people.
+
+**robbery:**
+Robberies per 100,000.
+
+**agg_assault:**
+Aggravated assaults per 100,000.
+
+**larceny:**
+Larcenies per 100,000.
+
+**motor_theft:**
+Vehicle theft per 100,000.
+
+**soc_sec:**
+Percent of individuals collecting social security.
+
+**nuclear:**
+Percent of power coming from nuclear sources.
+
+**coal:**
+Percent of power coming from coal sources.
+
+**tr_deaths:**
+Traffic deaths per 100,000.
+
+**tr_deaths_no_alc:**
+Traffic deaths per 100,000 where alcohol was not a factor.
+
+**unempl:**
+Unemployment rate (February 2012, preliminary).
+
+
+---
+"Data Analysis Plan"
+---
+
 
