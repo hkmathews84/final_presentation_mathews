@@ -11,16 +11,19 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```{r}
 library(openintro)
+library(dplyr)
+library(tidyverse)
 library(usdata)
 library(ggplot2)
 library(maps)
-library(dplyr)
 ```
 ---
 "Introduction"
 ---
 
-Focus will be on the **state_stats** dataset. The main question I will be exploring is, ***"What connection, if any, exists between population size, poverty, and robbery?"***
+Focus will be on the **state_stats** dataset. The main question I will be exploring is, ***"What connection, if any, exists between population size (2010 only), poverty, and robbery?"***
+
+My hypothesis: *There is a correlation between high population, high poverty levels and high robbery rates.*
 
 I got the dataset from OpenIntro datasets, under **usdata**. **State_stats** is one of 13 datasets inside of **usdata**.
 
@@ -123,4 +126,46 @@ Unemployment rate (February 2012, preliminary).
 "Data Analysis Plan"
 ---
 
+Outcome variables will be *poverty* and *robbery*.
 
+Predictor variable will be *pouplation size*.
+
+No comparison groups, as of now.
+
+Robbery and Population datasets:
+```{r}
+state_stats %>%
+  count(abbr, robbery, pop2010) %>%
+  group_by(pop2010) %>%
+  filter(robbery >= 0) %>%
+  arrange(desc(robbery))
+```
+
+```{r}
+state_stats %>%
+  count(abbr, robbery, pop2010) %>%
+  group_by(pop2010) %>%
+  filter(robbery >= 0) %>%
+  arrange(desc(pop2010))
+```
+
+Poverty and Population datasets:
+```{r}
+state_stats %>%
+  count(abbr, poverty, pop2010) %>%
+  group_by(pop2010) %>%
+  filter(poverty >= 0) %>%
+  arrange(desc(poverty))
+```
+
+```{r}
+state_stats %>%
+  count(abbr, poverty, pop2010) %>%
+  group_by(pop2010) %>%
+  filter(poverty >= 0) %>%
+  arrange(desc(pop2010))
+```
+
+Methods include: separating data from high to low, comparing the three variables (as seen above) and observing any correlation.
+
+A substantial observed correlation between population, poverty and robbery will be needed to support my hypothesized answer.
